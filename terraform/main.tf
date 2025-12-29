@@ -118,6 +118,7 @@ resource "aws_security_group" "sm-std-sg1" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   ingress {
     description = "Custom TCP"
     from_port   = 8080
@@ -125,6 +126,15 @@ resource "aws_security_group" "sm-std-sg1" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
